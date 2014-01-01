@@ -1,0 +1,23 @@
+---
+layout: default_fr
+title: Bernard Miegemolle / Blog
+resources: ../resources
+blogClass: class="active"
+file: blog.html
+---
+
+<div class="well well-sm">
+	<h1>
+		<img src="{{page.resources}}/img/blog-64.png" width="48px"
+			style="margin-left: 20px; margin-right: 20px" /> Blog
+	</h1>
+</div>
+
+<div class="alert alert-info">Les articles de ce blog sont en anglais uniquement...</div>
+
+<ul class="list-group">
+{% for post in site.posts %}
+<li class="list-group-item"><span class="label label-default" style="margin-right: 10px">{{post.date_fr}}</span>
+    <strong><a href="{{post.url}}">{{post.title}}</a></strong></li>
+{% endfor %}
+</ul>

@@ -1,0 +1,78 @@
+{% include header.html %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="../../../index.html">Bernard Miegemolle</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="../../../index.html">About me</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li><a href="../../../phd.html">PhD</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="../../../blog.html">Blog</a></li>
+			</ul>
+		</div>
+	</div>
+
+</nav>
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-9">
+			<div class="well well-sm">
+				<h1>
+					<img src="{{page.resources}}/img/blog-64.png" width="48px"
+						style="margin-left: 20px; margin-right: 20px" /> Blog
+				</h1>
+			</div>
+			<a href="../../../blog.html"><button type="button" class="btn btn-primary">Back</button></a>
+			{{content}}
+			<hr/>
+            <a href="../../../blog.html"><button type="button" class="btn btn-primary">Back</button></a>
+		</div>
+
+		<div class="col-md-3">
+			<div class="well" style="text-align: center">
+				<img src="{{page.resources}}/img/avatar.png" width="70%" class="img-rounded" /><br /><br />
+				<strong>Bernard Miegemolle</strong><br /> <br /> I'm a software
+				engineer and team manager, currently working for <a
+					href="http://www.sierrawireless.com/">Sierra Wireless</a>.
+			</div>
+			<div class="well" style="text-align: center">
+				<strong>Follow me on:</strong><br /> <br /> <img
+					src="{{page.resources}}/img/gmail-32-black.png"><a
+					href="mailto:bmiegemolle@gmail.com">Gmail</a><br /> <img
+					src="{{page.resources}}/img/github-32-black.png"><a
+					href="http://github.com/bmiegemolle">GitHub</a><br /> <img
+					src="{{page.resources}}/img/viadeo-32-black.png"><a
+					href="http://www.viadeo.com/fr/profile/bernard.miegemolle">Viadeo</a>
+			</div>
+			<div class="well" style="text-align: center">
+				<img src="{{page.resources}}/img/logo_sierra.png"><br /> <br />
+				<small> <a href="http://www.sierrawireless.com/">Sierra
+						Wireless</a> is the global leader in machine-to-machine (M2M) devices
+					and cloud services, delivering intelligent wireless solutions that
+					simplify the connected world.
+				</small>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<hr />
+<div class="container">
+	<ol class="breadcrumb">
+		<li><small>Copyright (c) 2014 Bernard Miegemolle</small></li>
+		<li><small>Icons by <a href="http://icons8.com">icons8</a>
+				and <a href="http://simpleicons.org/">Dan Leech</a></small></li>
+	</ol>
+</div>
+
+{% include footer.html %}
