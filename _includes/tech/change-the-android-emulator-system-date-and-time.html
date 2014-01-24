@@ -1,0 +1,90 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#tab002">
+				<img src="{{page.resources}}/img/android-32.png"
+				style="padding-right: 15px" /><b>Change the Android emulator
+					system date and time</b>
+			</a>
+		</h4>
+	</div>
+	<div id="tab002" class="panel-collapse collapse">
+		<div class="panel-body">
+			In some cases, you might want to change the Android emulator system
+			date and time in an automated way, i.e. either from the <em>Adb
+				Unix Shell</em>, or directly from Java code (very useful if you want to
+			write tests that change the device date and time).
+			<h4 style="padding-top: 10px;">
+				From the <em>Adb Unix Shell</em>
+			</h4>
+			This is quite simple. Open a terminal, and type the following line:
+<pre>
+# Date format is "YYYYMMDD.hhmmss". For example, set the date to 2013-01-24 - 13:45:23
+adb shell date -s 20130124.134523
+</pre>
+			<h4 style="padding-top: 10px;">From Java code</h4>
+			If you want to change the system date and time from your tests,
+			you'll first need to change the permissions of the
+			<code>/dev/alarm</code>
+			file:
+<pre>
+adb shell chmod 777 /dev/alarm
+</pre>
+			Then, the following method enables you to change programmatically the
+			date and time of the Android emulator:
+<pre>
+/**
+ * Sets the system current wall time, in milliseconds. This is done by calling the system native
+ * command {@code date}, which requires to have write permissions on the {@code /dev/alarm} file.
+ * 
+ * @param millis
+ *            the system current wall time, in milliseconds.
+ * @throws IOException
+ *             if the date native command can not be executed.
+ * @throws InterruptedException
+ *             if {@code interrupt()} was called for this Thread while it was sleeping.
+ */
+public void setSystemCurrentTimeMillis(long millis) throws IOException, InterruptedException {
+
+    // Computes the date argument in the good format from the millis value
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTimeInMillis(millis);
+    StringBuilder date = new StringBuilder();
+    date.append(String.format("%04d", calendar.get(Calendar.YEAR)));
+    date.append(String.format("%02d", calendar.get(Calendar.MONTH) + 1));
+    date.append(String.format("%02d", calendar.get(Calendar.DAY_OF_MONTH)));
+    date.append('.');
+    date.append(String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY)));
+    date.append(String.format("%02d", calendar.get(Calendar.MINUTE)));
+    date.append(String.format("%02d", calendar.get(Calendar.SECOND)));
+
+    // Executes the date native command
+    Process process = Runtime.getRuntime().exec("date -s " + date.toString());
+    int exitCode = process.waitFor();
+
+    // You can skip the following lines if you don't want to log the command output.
+
+    // Logs the exit code
+    Log.d(this.getClass().getSimpleName(), "[Date command] Exit code: " + exitCode);
+
+    // Logs the standard output of the command
+    int i = 1;
+    String line = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
+    while ( line != null ) {
+        Log.d(this.getClass().getSimpleName(), "[Date command] Stdout(" + (i++) + "): " + line);
+        line = new BufferedReader(new InputStreamReader(process.getInputStream())).readLine();
+    }
+
+    // Logs the error output of the command
+    i = 1;
+    line = new BufferedReader(new InputStreamReader(process.getErrorStream())).readLine();
+    while ( line != null ) {
+        Log.e(this.getClass().getSimpleName(), "[Date command] Stderr(" + (i++) + "): " + line);
+        line = new BufferedReader(new InputStreamReader(process.getErrorStream())).readLine();
+    }
+
+}
+</pre>
+		</div>
+	</div>
+</div>
