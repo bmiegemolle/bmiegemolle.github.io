@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#tab002">
+				<img src="{{page.resources}}/img/android-32.png"
+				style="padding-right: 15px" /><b>Programmatically hide the soft
+					keyboard</b>
+			</a>
+		</h4>
+	</div>
+	<div id="tab002" class="panel-collapse collapse">
+		<div class="panel-body">
+			If you need to hide the Android soft keyboard programmatically (when
+			clicking on a button for example), the following snippet is for you:
+<pre style="margin:30px;">
+InputMethodManager inputMethodManager =
+    (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+inputMethodManager.hideSoftInputFromWindow(myEditText.getWindowToken(), 0);
+</pre>
+		</div>
+	</div>
+</div>
