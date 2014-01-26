@@ -1,5 +1,5 @@
 ---
-title: Writing a Jenkins plugin / Project setup
+title: Writing a Jenkins plugin / Test your plugin
 layout: tech
 resources: ../../resources
 previous: 01-project-setup.html

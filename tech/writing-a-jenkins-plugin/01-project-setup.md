@@ -78,3 +78,12 @@ You can create the .project and .classpath files with the following command:
 mvn -DdownloadSources=true -DdownloadJavadocs=true -DoutputDirectory=target/eclipse-classes eclipse:eclipse
 ```
 
+<div style="padding-top:20px; padding-bottom:20px;">
+    <b>Project layout</b>
+</div>
+
+The following folders will contain the major parts of your plugin:
+
+* `src/main/java`: contains the Java source files,
+* `src/main/resources`: contains the Jelly or Groovy views of the plugin,
+* `src/main/webapp`: contains the static resources of the plugin such as images and HTML files.

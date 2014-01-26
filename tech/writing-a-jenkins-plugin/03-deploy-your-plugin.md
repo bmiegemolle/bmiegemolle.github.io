@@ -1,8 +1,9 @@
 ---
-title: Writing a Jenkins plugin / Project setup
+title: Writing a Jenkins plugin / Deploy your plugin
 layout: tech
 resources: ../../resources
 previous: 02-test-your-plugin.html
+next: 04-extension-points.html
 ---
 
 ## ![](../../resources/img/jenkins-32.png) Writing a Jenkins plugin
@@ -21,6 +22,6 @@ This will produce a `target/hello-world.hpi` file. You can now deploy your custo
 
 1. Stop Jenkins
 2. Remove the previous version of your plugin if this is not the first time you're deploying it: `rm -rf $JENKINS_HOME/plugins/hello-world*`
-3. Copy the `hello-world.hpi` file to `$JENKINS_HOME/plugins` directory
+3. Copy the `hello-world.hpi` file into `$JENKINS_HOME/plugins` directory
 4. Start Jenkins
 
