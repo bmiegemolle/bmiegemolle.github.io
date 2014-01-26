@@ -14,15 +14,17 @@
 			date and time in an automated way, i.e. either from the <em>Adb
 				Unix Shell</em>, or directly from Java code (very useful if you want to
 			write tests that change the device date and time).
-			<h4 style="padding-top: 10px;">
-				From the <em>Adb Unix Shell</em>
-			</h4>
+			<div style="padding-top: 20px; padding-bottom: 20px;">
+				<b>From the <em>Adb Unix Shell</em></b>
+			</div>
 			This is quite simple. Open a terminal, and type the following line:
 <pre>
 # Date format is "YYYYMMDD.hhmmss". For example, set the date to 2013-01-24 - 13:45:23
 adb shell date -s 20130124.134523
 </pre>
-			<h4 style="padding-top: 10px;">From Java code</h4>
+			<div style="padding-top: 20px; padding-bottom: 20px;">
+				<b>From Java code</b>
+			</div>
 			If you want to change the system date and time from your tests,
 			you'll first need to change the permissions of the
 			<code>/dev/alarm</code>
