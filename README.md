@@ -70,5 +70,3 @@ The icon resources I use are coming from:
 
 * https://www.iconfinder.com/search/?q=iconset%3Awindows-8-metro-style
 * https://github.com/danleech/simpleicons
-
-
